@@ -1,0 +1,19 @@
+<div class="fixed-action-btn" #floatingButton>
+  <a class="waves-effect waves-light btn-floating btn-large blue" id="menu">
+    <i class="large material-icons">menu</i>
+  </a>
+  <ul>
+    <li><a href="#help-modal" class="btn-floating modal-trigger yellow accent-4"><i class="material-icons">help</i></a></li>
+    <li><a href="#settings-modal" class="btn-floating modal-trigger grey"><i class="material-icons">settings</i></a></li>
+  </ul>
+</div>
+
+<div class="tap-target blue" data-target="menu" #helper>
+  <div class="tap-target-content">
+    <h5>Bienvenido</h5>
+    <p>Aqui podras encontrar los ajustes del simulador y una pequeña descripción sobre el</p>
+  </div>
+</div>
+
+<app-setting-modal></app-setting-modal>
+<app-help-modal></app-help-modal>

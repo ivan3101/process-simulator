@@ -1,0 +1,28 @@
+<div class="col s12 m5 offset-m2">
+  <div class="card">
+    <div class="card-content red lighten-1">
+      <span class="card-title">Proceso en ejecución</span>
+    </div>
+    <div class="card-content">
+      <table class="responsive-table">
+        <thead>
+        <tr>
+          <th>Proceso</th>
+          <th>Tiempo de ejecución</th>
+          <th>Progreso</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{ process?.processName }}</td>
+          <td>{{ process? (process.burstTime + 's') : '' }}</td>
+          <td>{{ process? (progress | number) + '%' : '' }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="progress">
+        <div class="determinate" [style.width.%]="progress"></div>
+      </div>
+    </div>
+  </div>
+</div>

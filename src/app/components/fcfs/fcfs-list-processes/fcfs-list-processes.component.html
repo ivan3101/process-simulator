@@ -1,0 +1,29 @@
+<div class="col s12 m5">
+  <div class="card">
+    <div class="card-content blue">
+      <span class="card-title white-text">Cola de Procesos</span>
+    </div>
+    <div class="card-content">
+      <table class="responsive-table">
+        <thead>
+        <tr>
+          <th *ngFor="let th of fields">{{ th }}</th>
+          <th>Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let process of processes">
+          <td>{{ process.processName }}</td>
+          <td>{{ process.size }}MB</td>
+          <td>{{ process.burstTime }}s </td>
+          <td>{{ process.state }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-action">
+      <button class="btn blue" [disabled]="!processes.length || executing" (click)="onExecuteProcesses()">Ejecutar procesos<i class="material-icons right">chevron_right</i></button>
+      <button class="btn red" [disabled]="!processes.length || executing" (click)="onClearProcesses()">Limpiar Procesos<i class="material-icons right">delete</i></button>
+    </div>
+  </div>
+</div>
