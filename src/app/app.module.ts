@@ -11,13 +11,13 @@ import { AlertModalComponent } from './components/alert-modal/alert-modal.compon
 import { SettingsButtonComponent } from './components/settings-button/settings-button.component';
 import { SettingModalComponent } from './components/setting-modal/setting-modal.component';
 import { HelpModalComponent } from './components/help-modal/help-modal.component';
-import {ReactiveFormsModule} from "@angular/forms";
-import {MemoryService} from "./services/memory.service";
+import {ReactiveFormsModule} from '@angular/forms';
+import {MemoryService} from './services/memory.service';
 import { FcfsCreateProcessComponent } from './components/fcfs/fcfs-create-process/fcfs-create-process.component';
 import { FcfsListProcessesComponent } from './components/fcfs/fcfs-list-processes/fcfs-list-processes.component';
 import { FcfsStatsProcessesComponent } from './components/fcfs/fcfs-stats-processes/fcfs-stats-processes.component';
 import { FcfsExecuteProcessComponent } from './components/fcfs/fcfs-execute-process/fcfs-execute-process.component';
-import {FcfsService} from "./services/fcfs.service";
+import {FcfsService} from './services/fcfs.service';
 import { FcfsPiechartMemoryComponent } from './components/fcfs/fcfs-piechart-memory/fcfs-piechart-memory.component';
 import { FcfsCpuChartComponent } from './components/fcfs/fcfs-cpu-chart/fcfs-cpu-chart.component';
 import { SjfCpuChartComponent } from './components/sjf/sjf-cpu-chart/sjf-cpu-chart.component';
@@ -27,7 +27,15 @@ import { SjfListProcessComponent } from './components/sjf/sjf-list-process/sjf-l
 import { SjfPiechartMemoryComponent } from './components/sjf/sjf-piechart-memory/sjf-piechart-memory.component';
 import { SjfStatsProcessComponent } from './components/sjf/sjf-stats-process/sjf-stats-process.component';
 import {SjfService} from './services/sjf.service';
+import {Router, RouterModule, Routes} from '@angular/router';
 
+const appRoutes: Routes = [
+  {path: '', redirectTo: 'fcfs', pathMatch: 'full'},
+  {path: 'fcfs', component: FcfsComponent},
+  {path: 'sjf', component: SjfComponent},
+  {path: 'priority', component: PriorityComponent},
+  {path: '**', redirectTo: 'fcfs'}
+];
 
 @NgModule({
   declarations: [
@@ -55,7 +63,8 @@ import {SjfService} from './services/sjf.service';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     MemoryService,
