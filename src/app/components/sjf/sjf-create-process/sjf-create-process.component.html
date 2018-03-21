@@ -5,29 +5,29 @@
     </div>
     <div class="card-content">
       <div class="row">
-        <form class="col s12" [formGroup]="fcfsForm" (ngSubmit)="onAddProcess()">
+        <form class="col s12" [formGroup]="sjfForm" (ngSubmit)="onAddProcess()">
           <div class="row">
             <div class="input-field col s12">
               <input id="processName" type="text" class="validate" formControlName="processName" data-length="10" #processName>
               <label for="processName">Nombre del proceso</label>
-              <span class="helper-text" data-error="El valor ingresado es invalido" data-success="Correcto" *ngIf="!fcfsForm.touched"></span>
+              <span class="helper-text" data-error="El valor ingresado es invalido" data-success="Correcto" *ngIf="!sjfForm.touched"></span>
             </div>
             <div class="input-field col s12">
               <input id="size" type="number" class="validate" formControlName="size" min="1">
               <label for="size">Espacio que ocupa en memoria (Megabytes)</label>
-              <span class="helper-text" data-error="El valor ingresado es invalido" data-success="Correcto" *ngIf="!fcfsForm.touched"></span>
+              <span class="helper-text" data-error="El valor ingresado es invalido" data-success="Correcto" *ngIf="!sjfForm.touched"></span>
             </div>
             <div class="input-field col s12">
               <input id="burstTime" type="number" class="validate" formControlName="burstTime" min="1">
               <label for="burstTime">Tiempo de ejecución (Segundos)</label>
-              <span class="helper-text" data-error="El valor ingresado es invalido" data-success="Correcto" *ngIf="!fcfsForm.touched"></span>
+              <span class="helper-text" data-error="El valor ingresado es invalido" data-success="Correcto" *ngIf="!sjfForm.touched"></span>
             </div>
             <div class="col s12" formArrayName="devices">
-              <div class="row" *ngFor="let device of fcfsForm.get('devices').controls; let i=index" [formGroupName]="i">
+              <div class="row" *ngFor="let device of sjfForm.get('devices').controls; let i=index" [formGroupName]="i">
                 <div class="input-field col s10">
                   <input [id]="i" type="text" class="validate" formControlName="name">
                   <label [for]="i">Dispositivo {{ i + 1 }}</label>
-                  <span class="helper-text" data-error="El valor ingresado es invalido" data-success="Correcto" *ngIf="!fcfsForm.touched"></span>
+                  <span class="helper-text" data-error="El valor ingresado es invalido" data-success="Correcto" *ngIf="!sjfForm.touched"></span>
                 </div>
                 <div class="col s1">
                   <button type="button" class="btn-flat btn-large" (click)="onRemoveDevice(i)"><i class="material-icons">remove_circle_outline</i></button>
@@ -38,7 +38,7 @@
               </div>
             </div>
           </div>
-          <button class="btn waves-effect waves-light" type="submit" name="action" [disabled]="!fcfsForm.valid">Agregar Proceso
+          <button class="btn waves-effect waves-light" type="submit" name="action" [disabled]="!sjfForm.valid">Agregar Proceso
             <i class="material-icons right">add</i>
           </button>
         </form>

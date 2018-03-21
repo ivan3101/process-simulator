@@ -24,7 +24,7 @@ export class SjfCpuChartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.chart = new CanvasJS.Chart('chartContainer2', {
+    this.chart = new CanvasJS.Chart('chartContainer4', {
       animationEnabled: true,
       title: {
         text: 'Utilización del CPU en intervalos de 2 segundos'

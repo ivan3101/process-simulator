@@ -50,7 +50,7 @@ export class SjfPiechartMemoryComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.distributionProcess = new CanvasJS.Chart("chartContainer", {
+    this.distributionProcess = new CanvasJS.Chart("chartContainer3", {
       animationEnabled: true,
       title: {
         text: "Distribución de Procesos en Memoria"
