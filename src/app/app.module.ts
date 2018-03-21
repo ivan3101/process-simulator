@@ -32,6 +32,7 @@ import { PriorityCreateProcessComponent } from './components/priority/priority-c
 import {PriorityService} from './services/priority.service';
 import { PriorityListProcessesComponent } from './components/priority/priority-list-processes/priority-list-processes.component';
 import { PriorityStatsProcessesComponent } from './components/priority/priority-stats-processes/priority-stats-processes.component';
+import { PriorityExecuteProcessComponent } from './components/priority/priority-execute-process/priority-execute-process.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'fcfs', pathMatch: 'full'},
@@ -67,6 +68,7 @@ const appRoutes: Routes = [
     PriorityCreateProcessComponent,
     PriorityListProcessesComponent,
     PriorityStatsProcessesComponent,
+    PriorityExecuteProcessComponent,
   ],
   imports: [
     BrowserModule,
