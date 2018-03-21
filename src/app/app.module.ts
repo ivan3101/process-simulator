@@ -31,6 +31,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { PriorityCreateProcessComponent } from './components/priority/priority-create-process/priority-create-process.component';
 import {PriorityService} from './services/priority.service';
 import { PriorityListProcessesComponent } from './components/priority/priority-list-processes/priority-list-processes.component';
+import { PriorityStatsProcessesComponent } from './components/priority/priority-stats-processes/priority-stats-processes.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'fcfs', pathMatch: 'full'},
@@ -65,6 +66,7 @@ const appRoutes: Routes = [
     SjfStatsProcessComponent,
     PriorityCreateProcessComponent,
     PriorityListProcessesComponent,
+    PriorityStatsProcessesComponent,
   ],
   imports: [
     BrowserModule,

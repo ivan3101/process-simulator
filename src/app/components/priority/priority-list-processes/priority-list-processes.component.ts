@@ -18,7 +18,7 @@ export class PriorityListProcessesComponent implements OnInit, OnDestroy {
 
   constructor(private priorityService: PriorityService) {
     this.executing = false;
-    this.fields = ['Nombre', 'Espacio ocupado', 'Tiempo de ejecución'];
+    this.fields = ['Nombre', 'Espacio ocupado', 'Tiempo de ejecución', 'Prioridad'];
     this.processes = this.priorityService.getAllProcesses();
   }
 

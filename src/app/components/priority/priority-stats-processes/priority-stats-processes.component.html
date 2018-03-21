@@ -1,0 +1,36 @@
+<div class="col s12 m5 offset-m2">
+  <div class="card">
+    <div class="card-content teal lighten-2">
+      <span class="card-title white-text">Estadisticas</span>
+    </div>
+    <div class="card-content">
+      <table class="responsive-table">
+        <thead>
+        <tr>
+          <th>Memoria</th>
+          <th>Total</th>
+          <th>Disponible</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>RAM</td>
+          <td>{{ totalRam }}</td>
+          <td>{{ remainingRam }}</td>
+        </tr>
+        <tr>
+          <td>Virtual</td>
+          <td>{{ totalSwap }}</td>
+          <td>{{ remainingSwap }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <ul>
+          <li>Cantidad de Procesos: {{ processes? processes.length : '0' }}</li>
+          <li>Tiempo de espera promedio: {{ averageWaitTime | number }} segundos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
