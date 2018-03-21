@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {MemoryService} from "./memory.service";
-import {Subject} from "rxjs/Subject";
+import {MemoryService} from './memory.service';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class FcfsService {
@@ -90,7 +90,7 @@ export class FcfsService {
     let counter = 0;
     this.processes.forEach((process, index) => {
       if (index) {
-        counter += this.processes[index-1].burstTime;
+        counter += this.processes[index - 1].burstTime;
         time += counter;
       }
     });
