@@ -27,9 +27,10 @@ import { SjfListProcessComponent } from './components/sjf/sjf-list-process/sjf-l
 import { SjfPiechartMemoryComponent } from './components/sjf/sjf-piechart-memory/sjf-piechart-memory.component';
 import { SjfStatsProcessComponent } from './components/sjf/sjf-stats-process/sjf-stats-process.component';
 import {SjfService} from './services/sjf.service';
-import {Router, RouterModule, Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import { PriorityCreateProcessComponent } from './components/priority/priority-create-process/priority-create-process.component';
 import {PriorityService} from './services/priority.service';
+import { PriorityListProcessesComponent } from './components/priority/priority-list-processes/priority-list-processes.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'fcfs', pathMatch: 'full'},
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
     SjfListProcessComponent,
     SjfPiechartMemoryComponent,
     SjfStatsProcessComponent,
-    PriorityCreateProcessComponent
+    PriorityCreateProcessComponent,
+    PriorityListProcessesComponent,
   ],
   imports: [
     BrowserModule,
