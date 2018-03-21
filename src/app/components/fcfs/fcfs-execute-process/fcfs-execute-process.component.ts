@@ -28,7 +28,7 @@ export class FcfsExecuteProcessComponent implements OnInit, OnDestroy {
           clearInterval(changeProgress);
           this.fcfsSerivce.finishedProcess.next(this.process);
         }
-      }, 1000)
+      }, 1000);
     });
 
     this.finishedProcesses = this.fcfsSerivce.finishedProcesses.subscribe(value => {

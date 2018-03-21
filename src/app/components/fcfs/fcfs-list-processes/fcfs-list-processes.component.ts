@@ -24,7 +24,7 @@ export class FcfsListProcessesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.addProcessSubscription = this.fcfsService.addProcessEvent.subscribe(value => {
-      if (value) this.processes = this.fcfsService.getAllProcesses()
+      if (value) this.processes = this.fcfsService.getAllProcesses();
     });
 
     this.processExecutingSubscription = this.fcfsService.processExecuting.subscribe(process => {
@@ -39,7 +39,7 @@ export class FcfsListProcessesComponent implements OnInit, OnDestroy {
       if (value) {
         this.executing = false;
       }
-    })
+    });
   }
 
   ngOnDestroy() {

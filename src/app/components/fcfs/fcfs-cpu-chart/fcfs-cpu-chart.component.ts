@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FcfsService} from "../../../services/fcfs.service";
-import {Subscription} from "rxjs/Subscription";
+import {FcfsService} from '../../../services/fcfs.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-fcfs-cpu-chart',
@@ -24,21 +24,21 @@ export class FcfsCpuChartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.chart = new CanvasJS.Chart("chartContainer2", {
+    this.chart = new CanvasJS.Chart('chartContainer2', {
       animationEnabled: true,
       title: {
-        text: "Utilización del CPU en intervalos de 2 segundos"
+        text: 'Utilización del CPU en intervalos de 2 segundos'
       },
       axisX: {
-        title: "Tiempo"
+        title: 'Tiempo'
       },
       axisY: {
-        title: "Porcentaje",
-        suffix: "%"
+        title: 'Porcentaje',
+        suffix: '%'
       },
       data: [{
-        type: "line",
-        name: "Carga del CPU",
+        type: 'line',
+        name: 'Carga del CPU',
         connectNullData: true,
         dataPoints: []
       }]
@@ -60,7 +60,7 @@ export class FcfsCpuChartComponent implements OnInit, OnDestroy {
     this.processesFinishedSubscription = this.fcfsSerivce.finishedProcesses.subscribe(value =>  {
       clearInterval(this.loadInterval);
       let i = 0;
-      let steps = Math.floor(Math.random() * (3-2)) + 2;
+      const steps = Math.floor(Math.random() * (3 - 2)) + 2;
       this.unloadInterval = setInterval(() => {
         if (i > steps) {
           clearInterval(this.unloadInterval);
@@ -70,7 +70,7 @@ export class FcfsCpuChartComponent implements OnInit, OnDestroy {
           i++;
         }
       }, 2000);
-    })
+    });
   }
 
   ngOnDestroy() {

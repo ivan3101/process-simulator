@@ -26,6 +26,7 @@ import { SjfExecuteProcessComponent } from './components/sjf/sjf-execute-process
 import { SjfListProcessComponent } from './components/sjf/sjf-list-process/sjf-list-process.component';
 import { SjfPiechartMemoryComponent } from './components/sjf/sjf-piechart-memory/sjf-piechart-memory.component';
 import { SjfStatsProcessComponent } from './components/sjf/sjf-stats-process/sjf-stats-process.component';
+import {SjfService} from './services/sjf.service';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { SjfStatsProcessComponent } from './components/sjf/sjf-stats-process/sjf
   ],
   providers: [
     MemoryService,
-    FcfsService
+    FcfsService,
+    SjfService
   ],
   bootstrap: [AppComponent]
 })
