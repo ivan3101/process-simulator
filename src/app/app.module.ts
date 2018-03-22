@@ -33,6 +33,8 @@ import {PriorityService} from './services/priority.service';
 import { PriorityListProcessesComponent } from './components/priority/priority-list-processes/priority-list-processes.component';
 import { PriorityStatsProcessesComponent } from './components/priority/priority-stats-processes/priority-stats-processes.component';
 import { PriorityExecuteProcessComponent } from './components/priority/priority-execute-process/priority-execute-process.component';
+import { PriorityPiechartMemoryComponent } from './components/priority/priority-piechart-memory/priority-piechart-memory.component';
+import { PriorityCpuChartComponent } from './components/priority/priority-cpu-chart/priority-cpu-chart.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'fcfs', pathMatch: 'full'},
@@ -69,6 +71,8 @@ const appRoutes: Routes = [
     PriorityListProcessesComponent,
     PriorityStatsProcessesComponent,
     PriorityExecuteProcessComponent,
+    PriorityPiechartMemoryComponent,
+    PriorityCpuChartComponent,
   ],
   imports: [
     BrowserModule,

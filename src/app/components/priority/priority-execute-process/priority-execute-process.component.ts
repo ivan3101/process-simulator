@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs/Subscription';
 import {PriorityService} from '../../../services/priority.service';
 
@@ -7,7 +7,7 @@ import {PriorityService} from '../../../services/priority.service';
   templateUrl: './priority-execute-process.component.html',
   styleUrls: ['./priority-execute-process.component.css']
 })
-export class PriorityExecuteProcessComponent implements OnInit {
+export class PriorityExecuteProcessComponent implements OnInit, OnDestroy{
   progress;
   process;
   processExecuting: Subscription;

@@ -44,6 +44,9 @@ export class PriorityListProcessesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.addProcessSubscription.unsubscribe();
+    this.processExecutingSubscription.unsubscribe();
+    this.finishedProcessesSubscription.unsubscribe();
+    this.finishedProcessSubscription.unsubscribe();
   }
 
   onExecuteProcesses() {

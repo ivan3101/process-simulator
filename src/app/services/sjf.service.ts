@@ -62,7 +62,6 @@ export class SjfService {
 
   executeProcesses() {
     const processes = this.orderProcesses();
-    console.log(processes);
     this.processesExecutingEvent.next(true);
     let i = 0;
     while (i < processes.length && processes[i].state === 'Bloqueado' ) {

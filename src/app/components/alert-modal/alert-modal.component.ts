@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FcfsService} from "../../services/fcfs.service";
 import {Subscription} from "rxjs/Subscription";
+import {SjfService} from '../../services/sjf.service';
+import {PriorityService} from '../../services/priority.service';
 
 @Component({
   selector: 'app-alert-modal',
@@ -10,14 +12,25 @@ import {Subscription} from "rxjs/Subscription";
 export class AlertModalComponent implements OnInit, AfterViewInit, OnDestroy{
   @ViewChild('alertModal') alertModal;
   message;
-  alertSubscription: Subscription;
-  constructor(private fcfsSerivice: FcfsService) {  }
+  alertFcfsSubscription: Subscription;
+  alertSjfSubscription: Subscription;
+  alertPrioritySubscription: Subscription;
+
+  constructor(private fcfsService: FcfsService, private sjfService: SjfService, private priorityService: PriorityService) {  }
 
   ngOnInit() {
-    this.alertSubscription = this.fcfsSerivice.alertEvent.subscribe(message => {
+    this.alertFcfsSubscription = this.fcfsService.alertEvent.subscribe(message => {
       this.message = message;
       M.Modal.getInstance(this.alertModal.nativeElement).open();
-    })
+    });
+    this.alertSjfSubscription = this.sjfService.alertEvent.subscribe(message => {
+      this.message = message;
+      M.Modal.getInstance(this.alertModal.nativeElement).open();
+    });
+    this.alertPrioritySubscription = this.priorityService.alertEvent.subscribe(message => {
+      this.message = message;
+      M.Modal.getInstance(this.alertModal.nativeElement).open();
+    });
   }
 
   ngAfterViewInit() {
@@ -25,6 +38,8 @@ export class AlertModalComponent implements OnInit, AfterViewInit, OnDestroy{
   }
 
   ngOnDestroy() {
-    this.alertSubscription.unsubscribe();
+    this.alertFcfsSubscription.unsubscribe();
+    this.alertSjfSubscription.unsubscribe();
+    this.alertPrioritySubscription.unsubscribe();
   }
 }
