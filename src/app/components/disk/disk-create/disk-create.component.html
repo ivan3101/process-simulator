@@ -1,0 +1,29 @@
+<div class="col s12 m4">
+  <div class="card">
+    <div class="card-content grey lighten-2">
+      <span class="card-title">Agregar tareas de disco</span>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <form class="col s12" [formGroup]="queue" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="cylinders" type="text" class="validate" formControlName="cylinders">
+              <label for="cylinders">Numero de cilindros</label>
+              <span class="helper-text" data-error="El valor ingresado es invalido" data-success="Correcto" *ngIf="!queue.touched"></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="start" type="text" class="validate" formControlName="start">
+              <label for="start">Numero de posición inicial</label>
+              <span class="helper-text" data-error="El valor ingresado es invalido" data-success="Correcto" *ngIf="!queue.touched"></span>
+            </div>
+          </div>
+          <button type="submit" class="btn waves-effect waves-light" name="submit" [disabled]="!queue.valid">Crear</button>
+          <button type="button" class="btn waves-effect waves-light red" name="clear" [disabled]="!queue.valid" (click)="clearChart()">Limpiar grafica</button>
+        </form>
+    </div>
+  </div>
+</div>
+
