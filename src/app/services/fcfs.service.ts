@@ -63,23 +63,27 @@ export class FcfsService {
   executeProcesses() {
     this.processesExecutingEvent.next(true);
     let i = 0;
+    let offset = 500;
     while (i < this.processes.length && this.processes[i].state === 'Bloqueado' ) {
       i++;
+      offset += 150;
     }
     if (i < this.processes.length) {
       this.processExecuting.next(this.processes[i]);
       let nextProcess = setTimeout(function callProcess() {
+      	offset = 500;	
         i++;
         while (i < this.processes.length && this.processes[i].state === 'Bloqueado' ) {
           i++;
+          offset += 150
         }
         if (i < this.processes.length) {
           this.processExecuting.next(this.processes[i]);
-          nextProcess = setTimeout(callProcess.bind(this), this.processes[i].burstTime * 1000 + 500);
+          nextProcess = setTimeout(callProcess.bind(this), this.processes[i].burstTime * 1000 + offset);
         } else {
           this.finishedProcesses.next(true);
         }
-      }.bind(this), this.processes[i].burstTime * 1000 + 500);
+      }.bind(this), this.processes[i].burstTime * 1000 + offset);
     } else {
       this.finishedProcesses.next(true);
     }

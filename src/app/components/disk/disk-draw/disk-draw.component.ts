@@ -24,8 +24,8 @@ export class DiskDrawComponent implements OnInit, OnDestroy {
       }]
     });
     this.chart.render();
-    this.positionSubscription = this.diskService.positionEvent.subscribe((coordinates: {x,y}) => {
-      this.chart.options.data[0].dataPoints.push({x: coordinates.x, y: coordinates.y});
+    this.positionSubscription = this.diskService.positionEvent.subscribe((coordinates) => {
+      this.chart.options.data[0].dataPoints = coordinates
       this.chart.render();
     });
     this.clearChartSubscription = this.diskService.clearChartEvent.subscribe(value => {

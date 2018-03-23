@@ -64,23 +64,27 @@ export class PriorityService {
     const processes = this.orderProcesses();
     this.processesExecutingEvent.next(true);
     let i = 0;
+    let offset = 500;
     while (i < processes.length && processes[i].state === 'Bloqueado' ) {
       i++;
+      offset += 150;
     }
     if (i < processes.length) {
       this.processExecuting.next(processes[i]);
       let nextProcess = setTimeout(function callProcess() {
         i++;
+        offset = 500;
         while (i < processes.length && processes[i].state === 'Bloqueado' ) {
           i++;
+          offset += 150;
         }
         if (i < processes.length) {
           this.processExecuting.next(processes[i]);
-          nextProcess = setTimeout(callProcess.bind(this), processes[i].burstTime * 1000 + 500);
+          nextProcess = setTimeout(callProcess.bind(this), processes[i].burstTime * 1000 + offset);
         } else {
           this.finishedProcesses.next(true);
         }
-      }.bind(this), processes[i].burstTime * 1000 + 500);
+      }.bind(this), processes[i].burstTime * 1000 + offset);
     } else {
       this.finishedProcesses.next(true);
     }
