@@ -48,4 +48,8 @@ export class FcfsCreateProcessComponent implements OnInit, AfterViewInit {
   onRemoveDevice(index) {
     (<FormArray>this.fcfsForm.get('devices')).removeAt(index);
   }
+
+  getDevicesArray() {
+    return (<FormArray>this.fcfsForm.get('devices'));
+  }
 }

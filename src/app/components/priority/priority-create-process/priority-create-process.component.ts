@@ -49,4 +49,8 @@ export class PriorityCreateProcessComponent implements OnInit, AfterViewInit {
   onRemoveDevice(index) {
     (<FormArray>this.priorityForm.get('devices')).removeAt(index);
   }
+
+    getDevicesArray() {
+        return (<FormArray>this.priorityForm.get('devices'));
+    }
 }

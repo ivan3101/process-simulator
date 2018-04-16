@@ -48,4 +48,8 @@ export class SjfCreateProcessComponent implements OnInit, AfterViewInit {
   onRemoveDevice(index) {
     (<FormArray>this.sjfForm.get('devices')).removeAt(index);
   }
+
+    getDevicesArray() {
+        return (<FormArray>this.sjfForm.get('devices'));
+    }
 }

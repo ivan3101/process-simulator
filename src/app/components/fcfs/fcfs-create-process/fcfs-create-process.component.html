@@ -23,7 +23,7 @@
               <span class="helper-text" data-error="El valor ingresado es invalido" data-success="Correcto" *ngIf="!fcfsForm.touched"></span>
             </div>
             <div class="col s12" formArrayName="devices">
-              <div class="row" *ngFor="let device of fcfsForm.get('devices').controls; let i=index" [formGroupName]="i">
+              <div class="row" *ngFor="let device of getDevicesArray().controls; let i=index" [formGroupName]="i">
                 <div class="input-field col s10">
                   <input [id]="i" type="text" class="validate" formControlName="name">
                   <label [for]="i">Dispositivo {{ i + 1 }}</label>
