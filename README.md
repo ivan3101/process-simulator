@@ -5,8 +5,9 @@ This is a OS process simulator using the scheduling algorithms SJF, FCFS and Pri
 ## Getting Started
 
 1. Make sure you follow the [prerequisites](https://github.com/ivan3101/process-simulator#prerequisites) section 
-2. Run `npm start` in the project directory
-3. Enjoy
+2. Clone the repo
+3. Run `npm start` in the project directory
+4. Enjoy
 
 ### Prerequisites
 
